@@ -34,7 +34,7 @@
 
 </footer>
 
-    
+
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 <script>
     WebFont.load({
@@ -64,4 +64,17 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-2473991-4', 'auto');
   ga('send', 'pageview');
+</script>
+
+<script>
+    // Load ServiceWorker
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('/serviceworker.js')
+        .then( function(registration) {
+            console.log('Success registring SW', registration.scope);
+        })
+        .catch( function(error) {
+            console.error('Registrating SW failed: ', error);
+        });
+    }
 </script>
